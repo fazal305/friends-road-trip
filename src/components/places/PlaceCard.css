@@ -1,0 +1,127 @@
+.place-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+  padding: var(--space-md);
+  transition: opacity var(--duration-base) var(--ease-standard);
+}
+
+.place-card--visited {
+  opacity: 0.6;
+}
+
+.place-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.place-card__priority {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 2px var(--space-2xs);
+  border-radius: var(--radius-full);
+}
+
+.place-card__priority--high {
+  color: var(--danger);
+  background: var(--danger-soft);
+}
+
+.place-card__priority--medium {
+  color: var(--accent-secondary);
+  background: var(--accent-secondary-soft);
+}
+
+.place-card__priority--low {
+  color: var(--text-tertiary);
+  background: var(--surface-hover);
+}
+
+.place-card__favorite {
+  color: var(--text-tertiary);
+}
+
+.place-card__favorite--active {
+  color: var(--accent-secondary);
+}
+
+.place-card__name {
+  font-size: var(--fs-md);
+  color: var(--text-primary);
+}
+
+.place-card__location {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--fs-xs);
+  color: var(--text-secondary);
+}
+
+.place-card__meta {
+  display: flex;
+  gap: var(--space-xs);
+  font-size: var(--fs-xs);
+  color: var(--text-tertiary);
+}
+
+.place-card__category {
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.place-card__notes {
+  font-size: var(--fs-xs);
+  color: var(--text-secondary);
+  background: var(--surface-hover);
+  padding: var(--space-2xs) var(--space-xs);
+  border-radius: var(--radius-sm);
+}
+
+.place-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--space-2xs);
+}
+
+.place-card__visited {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.place-card--visited .place-card__visited {
+  color: var(--success);
+}
+
+.place-card__actions {
+  display: flex;
+  gap: 2px;
+}
+
+.place-card__actions button {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  color: var(--text-tertiary);
+}
+
+.place-card__actions button:hover {
+  background: var(--surface-hover);
+  color: var(--text-primary);
+}
+
+.place-card__danger:hover {
+  color: var(--danger) !important;
+  background: var(--danger-soft) !important;
+}

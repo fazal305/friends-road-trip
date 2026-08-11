@@ -1,0 +1,13 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  max-width: var(--content-max-width);
+  margin-inline: auto;
+}
+
+.dashboard__section-title {
+  font-size: var(--fs-md);
+  color: var(--text-primary);
+  margin-bottom: var(--space-sm);
+}

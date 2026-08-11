@@ -1,0 +1,187 @@
+.route-stop {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.route-stop__rail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  width: 32px;
+}
+
+.route-stop__marker {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  background: var(--accent-soft);
+  color: var(--accent);
+  border: 2px solid var(--background);
+  box-shadow: 0 0 0 1px var(--border);
+}
+
+.route-stop__marker--endpoint {
+  background: var(--accent);
+  color: var(--text-on-accent);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+.route-stop__line {
+  flex: 1;
+  width: 2px;
+  min-height: 24px;
+  background: var(--border-strong);
+  margin-top: 4px;
+}
+
+.route-stop__card {
+  flex: 1;
+  padding: var(--space-sm) var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.route-stop__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-2xs);
+}
+
+.route-stop__role {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-tertiary);
+}
+
+.route-stop__actions {
+  display: flex;
+  gap: 4px;
+}
+
+.route-stop__icon-btn {
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  color: var(--text-tertiary);
+}
+
+.route-stop__icon-btn:hover:not(:disabled) {
+  background: var(--surface-hover);
+  color: var(--text-primary);
+}
+
+.route-stop__icon-btn:disabled {
+  opacity: 0.3;
+}
+
+.route-stop__icon-btn--danger:hover:not(:disabled) {
+  color: var(--danger);
+  background: var(--danger-soft);
+}
+
+.route-stop__name {
+  font-size: var(--fs-lg);
+  color: var(--text-primary);
+}
+
+.route-stop__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-top: var(--space-2xs);
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+}
+
+.route-stop__meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.route-stop__notes {
+  margin-top: var(--space-xs);
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+  background: var(--surface-hover);
+  border-radius: var(--radius-sm);
+  padding: var(--space-2xs) var(--space-xs);
+}
+
+.route-stop__places {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xs);
+  margin-top: var(--space-xs);
+}
+
+.route-stop__places li {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--accent-secondary);
+  background: var(--accent-secondary-soft);
+  padding: 3px var(--space-2xs);
+  border-radius: var(--radius-full);
+}
+
+.route-stop__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin-top: var(--space-2xs);
+}
+
+.route-stop__field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xs);
+}
+
+.route-stop__field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: var(--fs-xs);
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.route-stop__field input,
+.route-stop__field textarea {
+  font-size: var(--fs-sm);
+  padding: var(--space-2xs) var(--space-xs);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--background);
+  color: var(--text-primary);
+  font-weight: 400;
+  resize: vertical;
+}
+
+.route-stop__field input:focus,
+.route-stop__field textarea:focus {
+  border-color: var(--accent);
+}
+
+.route-stop__form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-2xs);
+}
+
+.route-stop__error {
+  color: var(--danger);
+  font-size: var(--fs-xs);
+}

@@ -1,0 +1,56 @@
+.poll-card {
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.poll-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-sm);
+}
+
+.poll-card__question {
+  font-size: var(--fs-md);
+  color: var(--text-primary);
+}
+
+.poll-card__actions {
+  display: flex;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+.poll-card__actions button {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  color: var(--text-tertiary);
+}
+
+.poll-card__actions button:hover {
+  background: var(--surface-hover);
+  color: var(--text-primary);
+}
+
+.poll-card__danger:hover {
+  color: var(--danger) !important;
+  background: var(--danger-soft) !important;
+}
+
+.poll-card__closed-badge {
+  align-self: flex-start;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-tertiary);
+  background: var(--surface-hover);
+  padding: 2px var(--space-2xs);
+  border-radius: var(--radius-full);
+}

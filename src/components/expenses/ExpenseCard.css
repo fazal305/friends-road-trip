@@ -1,0 +1,87 @@
+.expense-card {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+}
+
+.expense-card__icon {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.expense-card__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.expense-card__top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-xs);
+}
+
+.expense-card__title {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.expense-card__amount {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--text-primary);
+  flex-shrink: 0;
+}
+
+.expense-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  font-size: var(--fs-xs);
+  color: var(--text-tertiary);
+  margin-top: 2px;
+}
+
+.expense-card__notes {
+  margin-top: var(--space-2xs);
+  font-size: var(--fs-xs);
+  color: var(--text-secondary);
+  background: var(--surface-hover);
+  padding: var(--space-3xs) var(--space-xs);
+  border-radius: var(--radius-sm);
+}
+
+.expense-card__actions {
+  display: flex;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+.expense-card__actions button {
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  color: var(--text-tertiary);
+}
+
+.expense-card__actions button:hover {
+  background: var(--surface-hover);
+  color: var(--text-primary);
+}
+
+.expense-card__danger:hover {
+  color: var(--danger) !important;
+  background: var(--danger-soft) !important;
+}

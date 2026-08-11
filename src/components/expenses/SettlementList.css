@@ -1,0 +1,37 @@
+.settlement-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+}
+
+.settlement-list--empty {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  color: var(--success);
+  background: var(--success-soft);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+}
+
+.settlement-list__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-xs) var(--space-md);
+  background: var(--surface-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  font-size: var(--fs-sm);
+}
+
+.settlement-list__names strong {
+  color: var(--text-primary);
+}
+
+.settlement-list__amount {
+  font-weight: 700;
+  color: var(--danger);
+}

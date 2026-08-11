@@ -1,0 +1,61 @@
+.trip-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-sm);
+}
+
+@media (min-width: 640px) {
+  .trip-stats {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.trip-stats__card {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-xs);
+  padding: var(--space-sm);
+  transition: transform var(--duration-fast) var(--ease-standard),
+    border-color var(--duration-base) var(--ease-standard);
+}
+
+.trip-stats__card:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-strong);
+}
+
+.trip-stats__icon {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.trip-stats__value {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: var(--lh-tight);
+}
+
+.trip-stats__label {
+  display: block;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+.trip-stats__sub {
+  display: block;
+  font-size: 11px;
+  color: var(--text-tertiary);
+  margin-top: 1px;
+}

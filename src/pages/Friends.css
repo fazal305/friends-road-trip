@@ -1,0 +1,48 @@
+.friends-page {
+  max-width: 900px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.friends-page__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: var(--space-sm);
+}
+
+.friends-page__add-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  padding: var(--space-sm);
+  max-width: 360px;
+}
+
+.friends-page__add-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-xs);
+}
+
+.friends-page__add-form input,
+.friends-page__add-form select {
+  padding: var(--space-2xs) var(--space-xs);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--background);
+  color: var(--text-primary);
+  font-size: var(--fs-sm);
+}
+
+.friends-page__add-form input:focus,
+.friends-page__add-form select:focus {
+  border-color: var(--accent);
+}
+
+.friends-page__add-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-2xs);
+}

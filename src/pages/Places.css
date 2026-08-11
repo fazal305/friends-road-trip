@@ -1,0 +1,24 @@
+.places-page {
+  max-width: 900px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.places-page__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.places-page__count {
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+}
+
+.places-page__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: var(--space-sm);
+}

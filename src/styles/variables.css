@@ -1,0 +1,141 @@
+/* ==========================================================================
+   Convoy Design System — Design Tokens
+   Central source of truth for color, type, spacing, motion, and radius.
+   Components must consume these variables — never hardcode raw values.
+   ========================================================================== */
+
+:root {
+  /* ---- Brand core (theme-independent) ---- */
+  --brand-accent: #ff6b35;        /* sunset orange — primary action, highlights */
+  --brand-accent-dark: #e2531f;
+  --brand-accent-light: #ff8c5c;
+  --brand-secondary: #ffb84d;     /* highway amber — secondary highlight, warmth */
+  --brand-teal: #2dd4bf;          /* used sparingly for map/route progress */
+
+  /* ---- Semantic status colors (theme-independent) ---- */
+  --success: #4ade80;
+  --success-soft: rgba(74, 222, 128, 0.14);
+  --warning: #fbbf24;
+  --warning-soft: rgba(251, 191, 36, 0.14);
+  --danger: #f87171;
+  --danger-soft: rgba(248, 113, 113, 0.14);
+  --info: #60a5fa;
+  --info-soft: rgba(96, 165, 250, 0.14);
+
+  /* ---- Typography ---- */
+  --font-display: 'Space Grotesk', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'Inter', 'Segoe UI', system-ui, sans-serif;
+
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-md: 1.125rem;
+  --fs-lg: 1.375rem;
+  --fs-xl: 1.75rem;
+  --fs-2xl: 2.25rem;
+  --fs-3xl: 3rem;
+  --fs-4xl: 3.75rem;
+
+  --lh-tight: 1.1;
+  --lh-snug: 1.3;
+  --lh-normal: 1.55;
+
+  /* ---- Spacing scale ---- */
+  --space-3xs: 0.25rem;
+  --space-2xs: 0.5rem;
+  --space-xs: 0.75rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+
+  /* ---- Radius ---- */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 999px;
+
+  /* ---- Motion ---- */
+  --ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+  --duration-slow: 320ms;
+
+  /* ---- Layout ---- */
+  --sidebar-width: 264px;
+  --header-height: 64px;
+  --mobile-nav-height: 64px;
+  --content-max-width: 1240px;
+
+  /* ---- Elevation (dark theme shadows: soft, low-contrast) ---- */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.24);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.32);
+  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.4);
+  --shadow-accent: 0 8px 24px rgba(255, 107, 53, 0.25);
+}
+
+/* ==========================================================================
+   Theme: Dark (default)
+   ========================================================================== */
+:root,
+:root[data-theme='dark'] {
+  --background: #0e1015;
+  --background-elevated: #12151c;
+  --surface: #171a22;
+  --surface-elevated: #1e222c;
+  --surface-hover: #252a35;
+
+  --text-primary: #f5f4f1;
+  --text-secondary: #a4a9b6;
+  --text-tertiary: #6b7180;
+  --text-on-accent: #14100c;
+
+  --border: #262b36;
+  --border-strong: #343b49;
+
+  --accent: var(--brand-accent);
+  --accent-soft: rgba(255, 107, 53, 0.16);
+  --accent-hover: var(--brand-accent-light);
+  --accent-secondary: var(--brand-secondary);
+  --accent-secondary-soft: rgba(255, 184, 77, 0.16);
+
+  --scrollbar-thumb: #343b49;
+  --overlay: rgba(6, 7, 10, 0.72);
+}
+
+/* ==========================================================================
+   Theme: Light
+   ========================================================================== */
+:root[data-theme='light'] {
+  --background: #faf8f5;
+  --background-elevated: #ffffff;
+  --surface: #ffffff;
+  --surface-elevated: #ffffff;
+  --surface-hover: #f2efe9;
+
+  --text-primary: #1a1c22;
+  --text-secondary: #5b6270;
+  --text-tertiary: #868c99;
+  --text-on-accent: #ffffff;
+
+  --border: #e7e2d9;
+  --border-strong: #d5cfc2;
+
+  --accent: var(--brand-accent-dark);
+  --accent-soft: rgba(226, 83, 31, 0.1);
+  --accent-hover: var(--brand-accent);
+  --accent-secondary: #c98418;
+  --accent-secondary-soft: rgba(201, 132, 24, 0.12);
+
+  --scrollbar-thumb: #d5cfc2;
+  --overlay: rgba(26, 20, 14, 0.4);
+
+  --shadow-sm: 0 2px 8px rgba(20, 15, 10, 0.06);
+  --shadow-md: 0 8px 24px rgba(20, 15, 10, 0.08);
+  --shadow-lg: 0 16px 48px rgba(20, 15, 10, 0.12);
+  --shadow-accent: 0 8px 24px rgba(226, 83, 31, 0.18);
+}

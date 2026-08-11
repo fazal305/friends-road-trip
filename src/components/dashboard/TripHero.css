@@ -1,0 +1,144 @@
+.trip-hero {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border);
+  padding: var(--space-2xl) var(--space-md);
+  text-align: center;
+  animation: hero-enter var(--duration-slow) var(--ease-out);
+}
+
+@keyframes hero-enter {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.trip-hero__backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 90% 60% at 50% -10%, var(--accent-soft), transparent 70%),
+    radial-gradient(ellipse 70% 50% at 85% 110%, var(--accent-secondary-soft), transparent 70%),
+    var(--background-elevated);
+}
+
+.trip-hero__backdrop::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -10%;
+  width: 140%;
+  height: 60%;
+  transform: translateX(-50%) perspective(300px) rotateX(35deg);
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent 0,
+    transparent 42px,
+    var(--border-strong) 42px,
+    var(--border-strong) 46px
+  );
+  opacity: 0.35;
+  mask-image: linear-gradient(to top, black, transparent);
+}
+
+.trip-hero__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.trip-hero__status {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3xs);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: var(--space-3xs) var(--space-sm);
+  border-radius: var(--radius-full);
+}
+
+.trip-hero__status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.trip-hero__status--upcoming {
+  color: var(--accent-secondary);
+  background: var(--accent-secondary-soft);
+}
+
+.trip-hero__status--active {
+  color: var(--success);
+  background: var(--success-soft);
+}
+
+.trip-hero__status--active .trip-hero__status-dot {
+  animation: status-pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes status-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+.trip-hero__status--completed {
+  color: var(--text-tertiary);
+  background: var(--surface-hover);
+}
+
+.trip-hero__name {
+  font-size: var(--fs-3xl);
+  color: var(--text-primary);
+}
+
+@media (min-width: 640px) {
+  .trip-hero__name {
+    font-size: var(--fs-4xl);
+  }
+}
+
+.trip-hero__route {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  font-size: var(--fs-md);
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.trip-hero__route svg {
+  color: var(--accent);
+}
+
+.trip-hero__dates {
+  color: var(--text-tertiary);
+  font-size: var(--fs-sm);
+}
+
+.trip-hero__countdown {
+  width: 100%;
+  margin-top: var(--space-xs);
+}
+
+.trip-hero__live-note {
+  color: var(--text-secondary);
+  font-size: var(--fs-sm);
+  margin-top: var(--space-2xs);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trip-hero {
+    animation: none;
+  }
+  .trip-hero__status--active .trip-hero__status-dot {
+    animation: none;
+  }
+}

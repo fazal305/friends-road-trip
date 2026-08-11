@@ -1,0 +1,117 @@
+.food-card {
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  border-width: 1px;
+}
+
+.food-card--winner {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-accent);
+}
+
+.food-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-xs);
+}
+
+.food-card__name {
+  font-size: var(--fs-md);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xs);
+}
+
+.food-card__winner-badge {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-on-accent);
+  background: var(--accent);
+  padding: 2px var(--space-2xs);
+  border-radius: var(--radius-full);
+}
+
+.food-card__location {
+  font-size: var(--fs-xs);
+  color: var(--text-tertiary);
+}
+
+.food-card__remove {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  color: var(--text-tertiary);
+}
+
+.food-card__remove:hover {
+  color: var(--danger);
+  background: var(--danger-soft);
+}
+
+.food-card__meta {
+  display: flex;
+  gap: var(--space-sm);
+  font-size: var(--fs-xs);
+  color: var(--text-secondary);
+}
+
+.food-card__rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  color: var(--accent-secondary);
+  font-weight: 600;
+}
+
+.food-card__notes {
+  font-size: var(--fs-xs);
+  color: var(--text-secondary);
+  background: var(--surface-hover);
+  padding: var(--space-2xs) var(--space-xs);
+  border-radius: var(--radius-sm);
+}
+
+.food-card__votes {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--space-2xs);
+}
+
+.food-card__vote-count {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.food-card__voters {
+  display: flex;
+  gap: 4px;
+}
+
+.food-card__voter {
+  border-radius: 50%;
+  opacity: 0.4;
+  transition: opacity var(--duration-fast) var(--ease-standard),
+    transform var(--duration-fast) var(--ease-standard);
+}
+
+.food-card__voter:hover {
+  transform: translateY(-2px);
+}
+
+.food-card__voter--active {
+  opacity: 1;
+  box-shadow: 0 0 0 2px var(--accent);
+  border-radius: 50%;
+}

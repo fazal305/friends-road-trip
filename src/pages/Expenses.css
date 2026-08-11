@@ -1,0 +1,30 @@
+.expenses-page {
+  max-width: 720px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.expenses-page__section-title {
+  font-size: var(--fs-md);
+  color: var(--text-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.expenses-page__list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-sm);
+}
+
+.expenses-page__list-header .expenses-page__section-title {
+  margin-bottom: 0;
+}
+
+.expenses-page__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}

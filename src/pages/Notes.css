@@ -1,0 +1,55 @@
+.notes-page {
+  max-width: 640px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.notes-page__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  padding: var(--space-sm);
+}
+
+.notes-page__form textarea {
+  padding: var(--space-xs);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--background);
+  color: var(--text-primary);
+  font-size: var(--fs-sm);
+  font-family: var(--font-body);
+  resize: vertical;
+}
+
+.notes-page__form textarea:focus {
+  border-color: var(--accent);
+}
+
+.notes-page__form-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-xs);
+}
+
+.notes-page__form-footer select {
+  padding: var(--space-2xs) var(--space-xs);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--background);
+  color: var(--text-primary);
+  font-size: var(--fs-sm);
+}
+
+.notes-page__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.notes-page__error {
+  color: var(--danger);
+  font-size: var(--fs-xs);
+}

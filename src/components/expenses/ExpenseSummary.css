@@ -1,0 +1,80 @@
+.expense-summary {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.expense-summary__totals {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+}
+
+.expense-summary__total-card {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  background: var(--surface-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+}
+
+.expense-summary__value {
+  overflow-wrap: break-word;
+}
+
+.expense-summary__label {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-tertiary);
+}
+
+.expense-summary__value {
+  font-family: var(--font-display);
+  font-size: var(--fs-2xl);
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.expense-summary__paid {
+  background: var(--surface-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+}
+
+.expense-summary__paid-title {
+  display: block;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.expense-summary__paid ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.expense-summary__paid li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.expense-summary__paid-name {
+  flex: 1;
+  font-size: var(--fs-sm);
+  color: var(--text-primary);
+}
+
+.expense-summary__paid-amount {
+  font-weight: 600;
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+}

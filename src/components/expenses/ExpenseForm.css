@@ -1,0 +1,104 @@
+.expense-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.expense-form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+}
+
+.expense-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--text-secondary);
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.expense-form__field legend {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--text-secondary);
+  padding: 0;
+  margin-bottom: 4px;
+}
+
+.expense-form__field input,
+.expense-form__field select,
+.expense-form__field textarea {
+  font-size: var(--fs-sm);
+  font-weight: 400;
+  padding: var(--space-2xs) var(--space-xs);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--background);
+  color: var(--text-primary);
+  resize: vertical;
+}
+
+.expense-form__field input:focus,
+.expense-form__field select:focus,
+.expense-form__field textarea:focus {
+  border-color: var(--accent);
+}
+
+.expense-form__field--inline {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+}
+
+.expense-form__field--inline input {
+  max-width: 110px;
+}
+
+.expense-form__participants {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+.expense-form__checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--text-primary);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: var(--space-2xs) var(--space-xs);
+  border-radius: var(--radius-full);
+}
+
+.expense-form__custom-splits {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+  background: var(--surface-hover);
+  padding: var(--space-xs);
+  border-radius: var(--radius-md);
+}
+
+.expense-form__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-2xs);
+  margin-top: var(--space-2xs);
+}
+
+.expense-form__error {
+  color: var(--danger);
+  font-size: var(--fs-sm);
+  background: var(--danger-soft);
+  padding: var(--space-2xs) var(--space-xs);
+  border-radius: var(--radius-sm);
+}
