@@ -5,6 +5,7 @@ import EmptyState from '../components/common/EmptyState.jsx'
 import FriendCard from '../components/friends/FriendCard.jsx'
 import { useFriends } from '../hooks/useFriends.js'
 import { useConfirm } from '../hooks/useConfirm.jsx'
+import { useToast } from '../hooks/useToast.jsx'
 import { FRIEND_ROLES } from '../data/initialTrip.js'
 import './Friends.css'
 
@@ -13,6 +14,7 @@ const AVATAR_COLORS = ['#ff6b35', '#60a5fa', '#4ade80', '#ffb84d', '#f87171', '#
 export default function Friends() {
   const { friends, addFriend, updateFriend, removeFriend, confirmRsvp } = useFriends()
   const { requestConfirm, confirmDialog } = useConfirm()
+  const { showToast, toast } = useToast()
   const [showForm, setShowForm] = useState(false)
   const [form, setForm] = useState({ name: '', role: 'Passenger', phone: '' })
   const [error, setError] = useState('')
@@ -33,6 +35,7 @@ export default function Friends() {
     setForm({ name: '', role: 'Passenger', phone: '' })
     setError('')
     setShowForm(false)
+    showToast('Friend added.')
   }
 
   return (
@@ -93,6 +96,7 @@ export default function Friends() {
         </Button>
       )}
       {confirmDialog}
+      {toast}
     </div>
   )
 }

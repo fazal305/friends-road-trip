@@ -7,6 +7,7 @@ import { useFood } from '../hooks/useFood.js'
 import { useFriends } from '../hooks/useFriends.js'
 import { useTrip } from '../hooks/useTrip.js'
 import { useConfirm } from '../hooks/useConfirm.jsx'
+import { useToast } from '../hooks/useToast.jsx'
 import './Food.css'
 
 export default function Food() {
@@ -14,6 +15,7 @@ export default function Food() {
   const { friends } = useFriends()
   const { trip } = useTrip()
   const { requestConfirm, confirmDialog } = useConfirm()
+  const { showToast, toast } = useToast()
   const [showForm, setShowForm] = useState(false)
   const [form, setForm] = useState({ name: '', location: '', cuisine: '', estimatedCost: '', rating: '' })
   const [error, setError] = useState('')
@@ -38,6 +40,7 @@ export default function Food() {
     setForm({ name: '', location: '', cuisine: '', estimatedCost: '', rating: '' })
     setError('')
     setShowForm(false)
+    showToast('Restaurant added.')
   }
 
   return (
@@ -100,6 +103,7 @@ export default function Food() {
         </>
       )}
       {confirmDialog}
+      {toast}
     </div>
   )
 }

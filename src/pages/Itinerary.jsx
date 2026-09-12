@@ -4,10 +4,12 @@ import Button from '../components/common/Button.jsx'
 import EmptyState from '../components/common/EmptyState.jsx'
 import DayCard from '../components/itinerary/DayCard.jsx'
 import { useItinerary } from '../hooks/useItinerary.js'
+import { useToast } from '../hooks/useToast.jsx'
 import './Itinerary.css'
 
 export default function Itinerary() {
   const { itinerary, addItineraryDay } = useItinerary()
+  const { showToast, toast } = useToast()
   const [showForm, setShowForm] = useState(false)
   const [title, setTitle] = useState('')
   const [date, setDate] = useState('')
@@ -24,6 +26,7 @@ export default function Itinerary() {
     setDate('')
     setError('')
     setShowForm(false)
+    showToast('Day added to itinerary.')
   }
 
   return (
@@ -61,6 +64,7 @@ export default function Itinerary() {
           Add day
         </Button>
       )}
+      {toast}
     </div>
   )
 }

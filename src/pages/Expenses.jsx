@@ -10,12 +10,14 @@ import SettlementList from '../components/expenses/SettlementList.jsx'
 import { useExpenses } from '../hooks/useExpenses.js'
 import { useTrip } from '../hooks/useTrip.js'
 import { useConfirm } from '../hooks/useConfirm.jsx'
+import { useToast } from '../hooks/useToast.jsx'
 import './Expenses.css'
 
 export default function Expenses() {
   const { expenses, friends, friendsById, totals, paidByFriend, settlements, addExpense, updateExpense, removeExpense } = useExpenses()
   const { trip } = useTrip()
   const { requestConfirm, confirmDialog } = useConfirm()
+  const { showToast, toast } = useToast()
   const [modalOpen, setModalOpen] = useState(false)
   const [editingExpense, setEditingExpense] = useState(null)
 
@@ -32,8 +34,10 @@ export default function Expenses() {
   const handleSubmit = (values) => {
     if (editingExpense) {
       updateExpense(editingExpense.id, values)
+      showToast('Expense updated.')
     } else {
       addExpense(values)
+      showToast('Expense added.')
     }
     setModalOpen(false)
   }
@@ -100,6 +104,7 @@ export default function Expenses() {
         />
       </Modal>
       {confirmDialog}
+      {toast}
     </div>
   )
 }
