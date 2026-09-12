@@ -23,8 +23,8 @@
   --info-soft: rgba(96, 165, 250, 0.14);
 
   /* ---- Typography ---- */
-  --font-display: 'Space Grotesk', 'Segoe UI', system-ui, sans-serif;
-  --font-body: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  --font-display: 'Unbounded', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'Figtree', 'Segoe UI', system-ui, sans-serif;
 
   --fs-xs: 0.75rem;
   --fs-sm: 0.875rem;
