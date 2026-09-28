@@ -1,6 +1,6 @@
-import Icon from '../common/Icon.jsx'
-import { formatShortDate } from '../../utils/formatters.js'
-import './NoteCard.css'
+import Icon from "../common/Icon.jsx";
+import { formatShortDate } from "../../utils/formatters.js";
+import "./NoteCard.css";
 
 export default function NoteCard({ note, authorName, onRemove }) {
   return (
@@ -16,5 +16,5 @@ export default function NoteCard({ note, authorName, onRemove }) {
         </button>
       </div>
     </li>
-  )
+  );
 }

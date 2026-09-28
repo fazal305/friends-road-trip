@@ -1,7 +1,7 @@
-import { useTripContext } from '../contexts/TripContext.jsx'
+import { useTripContext } from "../contexts/TripContext.jsx";
 
 export function useItinerary() {
-  const { state, actions } = useTripContext()
+  const { state, actions } = useTripContext();
 
   return {
     itinerary: state.itinerary,
@@ -12,5 +12,5 @@ export function useItinerary() {
     updateItineraryStop: actions.updateItineraryStop,
     removeItineraryStop: actions.removeItineraryStop,
     moveItineraryStop: actions.moveItineraryStop,
-  }
+  };
 }

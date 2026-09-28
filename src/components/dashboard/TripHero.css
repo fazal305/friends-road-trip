@@ -9,8 +9,14 @@
 }
 
 @keyframes hero-enter {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .trip-hero__backdrop {
@@ -18,13 +24,21 @@
   inset: 0;
   z-index: 0;
   background:
-    radial-gradient(ellipse 90% 60% at 50% -10%, var(--accent-soft), transparent 70%),
-    radial-gradient(ellipse 70% 50% at 85% 110%, var(--accent-secondary-soft), transparent 70%),
+    radial-gradient(
+      ellipse 90% 60% at 50% -10%,
+      var(--accent-soft),
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 70% 50% at 85% 110%,
+      var(--accent-secondary-soft),
+      transparent 70%
+    ),
     var(--background-elevated);
 }
 
 .trip-hero__backdrop::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 50%;
   bottom: -10%;
@@ -85,8 +99,13 @@
 }
 
 @keyframes status-pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.35; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
 }
 
 .trip-hero__status--completed {

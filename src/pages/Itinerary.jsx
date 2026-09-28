@@ -1,38 +1,47 @@
-import { useState } from 'react'
-import Icon from '../components/common/Icon.jsx'
-import Button from '../components/common/Button.jsx'
-import EmptyState from '../components/common/EmptyState.jsx'
-import DayCard from '../components/itinerary/DayCard.jsx'
-import { useItinerary } from '../hooks/useItinerary.js'
-import { useToast } from '../hooks/useToast.jsx'
-import './Itinerary.css'
+import { useState } from "react";
+import Icon from "../components/common/Icon.jsx";
+import Button from "../components/common/Button.jsx";
+import EmptyState from "../components/common/EmptyState.jsx";
+import DayCard from "../components/itinerary/DayCard.jsx";
+import { useItinerary } from "../hooks/useItinerary.js";
+import { useToast } from "../hooks/useToast.jsx";
+import "./Itinerary.css";
 
 export default function Itinerary() {
-  const { itinerary, addItineraryDay } = useItinerary()
-  const { showToast, toast } = useToast()
-  const [showForm, setShowForm] = useState(false)
-  const [title, setTitle] = useState('')
-  const [date, setDate] = useState('')
-  const [error, setError] = useState('')
+  const { itinerary, addItineraryDay } = useItinerary();
+  const { showToast, toast } = useToast();
+  const [showForm, setShowForm] = useState(false);
+  const [title, setTitle] = useState("");
+  const [date, setDate] = useState("");
+  const [error, setError] = useState("");
 
   const handleAdd = (event) => {
-    event.preventDefault()
+    event.preventDefault();
     if (!title.trim()) {
-      setError('Give the day a title, e.g. "Naran → Hunza".')
-      return
+      setError('Give the day a title, e.g. "Naran → Hunza".');
+      return;
     }
-    addItineraryDay({ dayNumber: itinerary.length + 1, date, title: title.trim(), notes: '' })
-    setTitle('')
-    setDate('')
-    setError('')
-    setShowForm(false)
-    showToast('Day added to itinerary.')
-  }
+    addItineraryDay({
+      dayNumber: itinerary.length + 1,
+      date,
+      title: title.trim(),
+      notes: "",
+    });
+    setTitle("");
+    setDate("");
+    setError("");
+    setShowForm(false);
+    showToast("Day added to itinerary.");
+  };
 
   return (
     <div className="itinerary-page">
       {itinerary.length === 0 ? (
-        <EmptyState icon="itinerary" title="No days planned yet" description="Add your first day to start building the itinerary." />
+        <EmptyState
+          icon="itinerary"
+          title="No days planned yet"
+          description="Add your first day to start building the itinerary."
+        />
       ) : (
         <div className="itinerary-page__list">
           {itinerary.map((day, index) => (
@@ -42,10 +51,17 @@ export default function Itinerary() {
       )}
 
       {showForm ? (
-        <form className="itinerary-page__add-form surface-card" onSubmit={handleAdd}>
+        <form
+          className="itinerary-page__add-form surface-card"
+          onSubmit={handleAdd}
+        >
           {error && <p className="timeline-item__error">{error}</p>}
           <div className="itinerary-page__add-row">
-            <input type="date" value={date} onChange={(e) => setDate(e.target.value)} />
+            <input
+              type="date"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+            />
             <input
               autoFocus
               placeholder="Day title, e.g. Naran → Hunza"
@@ -54,8 +70,16 @@ export default function Itinerary() {
             />
           </div>
           <div className="itinerary-page__add-actions">
-            <Button type="button" variant="ghost" onClick={() => setShowForm(false)}>Cancel</Button>
-            <Button type="submit" variant="primary">Add day</Button>
+            <Button
+              type="button"
+              variant="ghost"
+              onClick={() => setShowForm(false)}
+            >
+              Cancel
+            </Button>
+            <Button type="submit" variant="primary">
+              Add day
+            </Button>
           </div>
         </form>
       ) : (
@@ -66,5 +90,5 @@ export default function Itinerary() {
       )}
       {toast}
     </div>
-  )
+  );
 }

@@ -1,7 +1,7 @@
-import Modal from '../common/Modal.jsx'
-import { NAV_ITEMS } from './navItems.js'
-import { NAV_SHORTCUT_KEYS } from '../../utils/shortcuts.js'
-import './ShortcutsModal.css'
+import Modal from "../common/Modal.jsx";
+import { NAV_ITEMS } from "./navItems.js";
+import { NAV_SHORTCUT_KEYS } from "../../utils/shortcuts.js";
+import "./ShortcutsModal.css";
 
 export default function ShortcutsModal({ open, onClose }) {
   return (
@@ -23,5 +23,5 @@ export default function ShortcutsModal({ open, onClose }) {
         </li>
       </ul>
     </Modal>
-  )
+  );
 }

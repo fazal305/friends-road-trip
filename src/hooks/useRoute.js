@@ -1,7 +1,7 @@
-import { useTripContext } from '../contexts/TripContext.jsx'
+import { useTripContext } from "../contexts/TripContext.jsx";
 
 export function useRoute() {
-  const { state, actions } = useTripContext()
+  const { state, actions } = useTripContext();
 
   return {
     routeStops: state.routeStops,
@@ -9,5 +9,5 @@ export function useRoute() {
     updateRouteStop: actions.updateRouteStop,
     removeRouteStop: actions.removeRouteStop,
     moveRouteStop: actions.moveRouteStop,
-  }
+  };
 }

@@ -1,5 +1,5 @@
-import { useCallback, useState } from 'react'
-import ConfirmDialog from '../components/common/ConfirmDialog.jsx'
+import { useCallback, useState } from "react";
+import ConfirmDialog from "../components/common/ConfirmDialog.jsx";
 
 /**
  * Renders an accessible confirm dialog on demand instead of the native
@@ -7,24 +7,24 @@ import ConfirmDialog from '../components/common/ConfirmDialog.jsx'
  * then requestConfirm({ title, description, onConfirm }) and render {confirmDialog}.
  */
 export function useConfirm() {
-  const [request, setRequest] = useState(null)
+  const [request, setRequest] = useState(null);
 
-  const requestConfirm = useCallback((options) => setRequest(options), [])
-  const close = useCallback(() => setRequest(null), [])
+  const requestConfirm = useCallback((options) => setRequest(options), []);
+  const close = useCallback(() => setRequest(null), []);
 
   const confirmDialog = (
     <ConfirmDialog
       open={!!request}
-      title={request?.title ?? 'Are you sure?'}
+      title={request?.title ?? "Are you sure?"}
       description={request?.description}
       confirmLabel={request?.confirmLabel}
       onCancel={close}
       onConfirm={() => {
-        request?.onConfirm()
-        close()
+        request?.onConfirm();
+        close();
       }}
     />
-  )
+  );
 
-  return { requestConfirm, confirmDialog }
+  return { requestConfirm, confirmDialog };
 }

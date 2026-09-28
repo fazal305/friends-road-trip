@@ -15,7 +15,8 @@
   align-items: flex-start;
   gap: var(--space-xs);
   padding: var(--space-sm);
-  transition: transform var(--duration-fast) var(--ease-standard),
+  transition:
+    transform var(--duration-fast) var(--ease-standard),
     border-color var(--duration-base) var(--ease-standard);
 }
 

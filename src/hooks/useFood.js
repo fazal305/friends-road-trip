@@ -1,7 +1,7 @@
-import { useTripContext } from '../contexts/TripContext.jsx'
+import { useTripContext } from "../contexts/TripContext.jsx";
 
 export function useFood() {
-  const { state, actions } = useTripContext()
+  const { state, actions } = useTripContext();
 
   return {
     foodOptions: state.foodOptions,
@@ -9,5 +9,5 @@ export function useFood() {
     updateFoodOption: actions.updateFoodOption,
     removeFoodOption: actions.removeFoodOption,
     voteFoodOption: actions.voteFoodOption,
-  }
+  };
 }

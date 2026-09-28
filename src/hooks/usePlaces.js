@@ -1,7 +1,7 @@
-import { useTripContext } from '../contexts/TripContext.jsx'
+import { useTripContext } from "../contexts/TripContext.jsx";
 
 export function usePlaces() {
-  const { state, actions } = useTripContext()
+  const { state, actions } = useTripContext();
 
   return {
     places: state.places,
@@ -10,5 +10,5 @@ export function usePlaces() {
     removePlace: actions.removePlace,
     togglePlaceVisited: actions.togglePlaceVisited,
     togglePlaceFavorite: actions.togglePlaceFavorite,
-  }
+  };
 }

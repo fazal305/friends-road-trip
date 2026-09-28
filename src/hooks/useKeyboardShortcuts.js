@@ -1,6 +1,6 @@
-import { useEffect } from 'react'
+import { useEffect } from "react";
 
-const EDITABLE_TAGS = new Set(['INPUT', 'TEXTAREA', 'SELECT'])
+const EDITABLE_TAGS = new Set(["INPUT", "TEXTAREA", "SELECT"]);
 
 /**
  * Global single-key shortcuts. Ignored while typing in a form field or a
@@ -10,20 +10,24 @@ const EDITABLE_TAGS = new Set(['INPUT', 'TEXTAREA', 'SELECT'])
 export function useKeyboardShortcuts(shortcutsMap) {
   useEffect(() => {
     const handleKeyDown = (event) => {
-      if (event.metaKey || event.ctrlKey || event.altKey) return
+      if (event.metaKey || event.ctrlKey || event.altKey) return;
 
-      const target = event.target
-      if (target instanceof HTMLElement && (EDITABLE_TAGS.has(target.tagName) || target.isContentEditable)) return
-      if (document.querySelector('[role="dialog"]')) return
+      const target = event.target;
+      if (
+        target instanceof HTMLElement &&
+        (EDITABLE_TAGS.has(target.tagName) || target.isContentEditable)
+      )
+        return;
+      if (document.querySelector('[role="dialog"]')) return;
 
-      const handler = shortcutsMap[event.key.toLowerCase()]
+      const handler = shortcutsMap[event.key.toLowerCase()];
       if (handler) {
-        event.preventDefault()
-        handler()
+        event.preventDefault();
+        handler();
       }
-    }
+    };
 
-    window.addEventListener('keydown', handleKeyDown)
-    return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [shortcutsMap])
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [shortcutsMap]);
 }

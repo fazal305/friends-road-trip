@@ -1,36 +1,42 @@
-import { useState } from 'react'
-import Icon from '../common/Icon.jsx'
-import Button from '../common/Button.jsx'
-import EmptyState from '../common/EmptyState.jsx'
-import RouteStop from './RouteStop.jsx'
-import { useRoute } from '../../hooks/useRoute.js'
-import './RouteMap.css'
+import { useState } from "react";
+import Icon from "../common/Icon.jsx";
+import Button from "../common/Button.jsx";
+import EmptyState from "../common/EmptyState.jsx";
+import RouteStop from "./RouteStop.jsx";
+import { useRoute } from "../../hooks/useRoute.js";
+import "./RouteMap.css";
 
 export default function RouteMap() {
-  const { routeStops, addRouteStop, updateRouteStop, removeRouteStop, moveRouteStop } = useRoute()
-  const [showForm, setShowForm] = useState(false)
-  const [name, setName] = useState('')
-  const [error, setError] = useState('')
+  const {
+    routeStops,
+    addRouteStop,
+    updateRouteStop,
+    removeRouteStop,
+    moveRouteStop,
+  } = useRoute();
+  const [showForm, setShowForm] = useState(false);
+  const [name, setName] = useState("");
+  const [error, setError] = useState("");
 
   const handleAdd = (event) => {
-    event.preventDefault()
+    event.preventDefault();
     if (!name.trim()) {
-      setError('Give the stop a name.')
-      return
+      setError("Give the stop a name.");
+      return;
     }
     addRouteStop({
       name: name.trim(),
-      date: '',
+      date: "",
       arrivalTime: null,
       departureTime: null,
       distanceFromPrevKm: 0,
-      notes: '',
+      notes: "",
       placesToVisit: [],
-    })
-    setName('')
-    setError('')
-    setShowForm(false)
-  }
+    });
+    setName("");
+    setError("");
+    setShowForm(false);
+  };
 
   return (
     <div className="route-map">
@@ -40,7 +46,11 @@ export default function RouteMap() {
       </p>
 
       {routeStops.length === 0 ? (
-        <EmptyState icon="route" title="No stops yet" description="Add your starting point to begin building the route." />
+        <EmptyState
+          icon="route"
+          title="No stops yet"
+          description="Add your starting point to begin building the route."
+        />
       ) : (
         <ol className="route-map__list">
           {routeStops.map((stop, index) => (
@@ -50,8 +60,8 @@ export default function RouteMap() {
               position={index + 1}
               isFirst={index === 0}
               isLast={index === routeStops.length - 1}
-              onMoveUp={() => moveRouteStop(stop.id, 'up')}
-              onMoveDown={() => moveRouteStop(stop.id, 'down')}
+              onMoveUp={() => moveRouteStop(stop.id, "up")}
+              onMoveDown={() => moveRouteStop(stop.id, "down")}
               onUpdate={(updates) => updateRouteStop(stop.id, updates)}
               onRemove={() => removeRouteStop(stop.id)}
             />
@@ -69,8 +79,16 @@ export default function RouteMap() {
             onChange={(e) => setName(e.target.value)}
           />
           <div className="route-map__add-actions">
-            <Button type="button" variant="ghost" onClick={() => setShowForm(false)}>Cancel</Button>
-            <Button type="submit" variant="primary">Add stop</Button>
+            <Button
+              type="button"
+              variant="ghost"
+              onClick={() => setShowForm(false)}
+            >
+              Cancel
+            </Button>
+            <Button type="submit" variant="primary">
+              Add stop
+            </Button>
           </div>
         </form>
       ) : (
@@ -80,5 +98,5 @@ export default function RouteMap() {
         </Button>
       )}
     </div>
-  )
+  );
 }

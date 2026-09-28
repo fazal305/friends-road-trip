@@ -1,7 +1,7 @@
-import { useTripContext } from '../contexts/TripContext.jsx'
+import { useTripContext } from "../contexts/TripContext.jsx";
 
 export function usePolls() {
-  const { state, actions } = useTripContext()
+  const { state, actions } = useTripContext();
 
   return {
     polls: state.polls,
@@ -9,5 +9,5 @@ export function usePolls() {
     votePoll: actions.votePoll,
     closePoll: actions.closePoll,
     removePoll: actions.removePoll,
-  }
+  };
 }

@@ -1,16 +1,16 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import AppShell from './components/layout/AppShell.jsx'
-import Dashboard from './pages/Dashboard.jsx'
-import Itinerary from './pages/Itinerary.jsx'
-import RoutePage from './pages/Route.jsx'
-import Friends from './pages/Friends.jsx'
-import Expenses from './pages/Expenses.jsx'
-import Packing from './pages/Packing.jsx'
-import Places from './pages/Places.jsx'
-import Food from './pages/Food.jsx'
-import Polls from './pages/Polls.jsx'
-import Notes from './pages/Notes.jsx'
-import Settings from './pages/Settings.jsx'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import AppShell from "./components/layout/AppShell.jsx";
+import Dashboard from "./pages/Dashboard.jsx";
+import Itinerary from "./pages/Itinerary.jsx";
+import RoutePage from "./pages/Route.jsx";
+import Friends from "./pages/Friends.jsx";
+import Expenses from "./pages/Expenses.jsx";
+import Packing from "./pages/Packing.jsx";
+import Places from "./pages/Places.jsx";
+import Food from "./pages/Food.jsx";
+import Polls from "./pages/Polls.jsx";
+import Notes from "./pages/Notes.jsx";
+import Settings from "./pages/Settings.jsx";
 
 function App() {
   return (
@@ -31,7 +31,7 @@ function App() {
         </Route>
       </Routes>
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;

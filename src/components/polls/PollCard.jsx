@@ -1,9 +1,9 @@
-import Icon from '../common/Icon.jsx'
-import PollResults from './PollResults.jsx'
-import './PollCard.css'
+import Icon from "../common/Icon.jsx";
+import PollResults from "./PollResults.jsx";
+import "./PollCard.css";
 
 export default function PollCard({ poll, friends, onVote, onClose, onRemove }) {
-  const totalVotes = poll.options.reduce((sum, o) => sum + o.votes.length, 0)
+  const totalVotes = poll.options.reduce((sum, o) => sum + o.votes.length, 0);
 
   return (
     <li className="poll-card surface-card">
@@ -15,7 +15,12 @@ export default function PollCard({ poll, friends, onVote, onClose, onRemove }) {
               <Icon name="check" size={14} />
             </button>
           )}
-          <button type="button" className="poll-card__danger" onClick={onRemove} aria-label="Delete poll">
+          <button
+            type="button"
+            className="poll-card__danger"
+            onClick={onRemove}
+            aria-label="Delete poll"
+          >
             <Icon name="trash" size={14} />
           </button>
         </div>
@@ -23,7 +28,13 @@ export default function PollCard({ poll, friends, onVote, onClose, onRemove }) {
 
       {poll.closed && <span className="poll-card__closed-badge">Closed</span>}
 
-      <PollResults options={poll.options} friends={friends} totalVotes={totalVotes} closed={poll.closed} onVote={onVote} />
+      <PollResults
+        options={poll.options}
+        friends={friends}
+        totalVotes={totalVotes}
+        closed={poll.closed}
+        onVote={onVote}
+      />
     </li>
-  )
+  );
 }

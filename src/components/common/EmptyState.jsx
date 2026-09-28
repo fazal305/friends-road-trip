@@ -1,7 +1,12 @@
-import Icon from './Icon.jsx'
-import './EmptyState.css'
+import Icon from "./Icon.jsx";
+import "./EmptyState.css";
 
-export default function EmptyState({ icon = 'route', title, description, action }) {
+export default function EmptyState({
+  icon = "route",
+  title,
+  description,
+  action,
+}) {
   return (
     <div className="empty-state">
       <div className="empty-state__icon">
@@ -11,5 +16,5 @@ export default function EmptyState({ icon = 'route', title, description, action 
       {description && <p className="empty-state__description">{description}</p>}
       {action}
     </div>
-  )
+  );
 }

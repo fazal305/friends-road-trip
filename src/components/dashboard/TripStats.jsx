@@ -1,37 +1,37 @@
-import Icon from '../common/Icon.jsx'
-import { useTrip } from '../../hooks/useTrip.js'
-import { formatDistance, formatDuration } from '../../utils/formatters.js'
-import './TripStats.css'
+import Icon from "../common/Icon.jsx";
+import { useTrip } from "../../hooks/useTrip.js";
+import { formatDistance, formatDuration } from "../../utils/formatters.js";
+import "./TripStats.css";
 
 export default function TripStats() {
-  const { trip, stats } = useTrip()
+  const { trip, stats } = useTrip();
 
   const cards = [
     {
-      icon: 'friends',
-      label: 'Travelers',
+      icon: "friends",
+      label: "Travelers",
       value: stats.friendCount,
       sub: `${stats.confirmedCount} confirmed`,
     },
     {
-      icon: 'itinerary',
-      label: 'Days',
+      icon: "itinerary",
+      label: "Days",
       value: stats.dayCount,
       sub: `${trip.startDate} → ${trip.endDate}`,
     },
     {
-      icon: 'route',
-      label: 'Distance',
+      icon: "route",
+      label: "Distance",
       value: formatDistance(trip.distanceKm),
-      sub: 'total route',
+      sub: "total route",
     },
     {
-      icon: 'car',
-      label: 'Travel time',
+      icon: "car",
+      label: "Travel time",
       value: formatDuration(trip.estimatedTravelHours),
-      sub: 'estimated driving',
+      sub: "estimated driving",
     },
-  ]
+  ];
 
   return (
     <div className="trip-stats">
@@ -48,5 +48,5 @@ export default function TripStats() {
         </div>
       ))}
     </div>
-  )
+  );
 }

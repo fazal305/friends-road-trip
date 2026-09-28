@@ -1,7 +1,7 @@
-import { useState } from 'react'
-import Button from '../common/Button.jsx'
-import { EXPENSE_CATEGORIES } from '../../data/initialTrip.js'
-import './ExpenseForm.css'
+import { useState } from "react";
+import Button from "../common/Button.jsx";
+import { EXPENSE_CATEGORIES } from "../../data/initialTrip.js";
+import "./ExpenseForm.css";
 
 function toFormState(expense, friends) {
   if (expense) {
@@ -12,27 +12,32 @@ function toFormState(expense, friends) {
       paidBy: expense.paidBy,
       participants: expense.participants,
       splitType: expense.splitType,
-      customSplits: Object.fromEntries(Object.entries(expense.customSplits ?? {}).map(([k, v]) => [k, String(v)])),
-      date: expense.date ?? '',
-      notes: expense.notes ?? '',
-    }
+      customSplits: Object.fromEntries(
+        Object.entries(expense.customSplits ?? {}).map(([k, v]) => [
+          k,
+          String(v),
+        ]),
+      ),
+      date: expense.date ?? "",
+      notes: expense.notes ?? "",
+    };
   }
   return {
-    title: '',
+    title: "",
     category: EXPENSE_CATEGORIES[0],
-    amount: '',
-    paidBy: friends[0]?.id ?? '',
+    amount: "",
+    paidBy: friends[0]?.id ?? "",
     participants: friends.map((f) => f.id),
-    splitType: 'equal',
+    splitType: "equal",
     customSplits: {},
-    date: '',
-    notes: '',
-  }
+    date: "",
+    notes: "",
+  };
 }
 
 export default function ExpenseForm({ expense, friends, onSubmit, onCancel }) {
-  const [form, setForm] = useState(() => toFormState(expense, friends))
-  const [error, setError] = useState('')
+  const [form, setForm] = useState(() => toFormState(expense, friends));
+  const [error, setError] = useState("");
 
   const toggleParticipant = (friendId) => {
     setForm((prev) => ({
@@ -40,24 +45,30 @@ export default function ExpenseForm({ expense, friends, onSubmit, onCancel }) {
       participants: prev.participants.includes(friendId)
         ? prev.participants.filter((id) => id !== friendId)
         : [...prev.participants, friendId],
-    }))
-  }
+    }));
+  };
 
   const handleSubmit = (event) => {
-    event.preventDefault()
-    const amount = Number(form.amount)
+    event.preventDefault();
+    const amount = Number(form.amount);
 
-    if (!form.title.trim()) return setError('Give the expense a title.')
-    if (!Number.isFinite(amount) || amount <= 0) return setError('Amount must be a positive number.')
-    if (!form.paidBy) return setError('Choose who paid.')
-    if (form.participants.length === 0) return setError('Select at least one participant to split with.')
+    if (!form.title.trim()) return setError("Give the expense a title.");
+    if (!Number.isFinite(amount) || amount <= 0)
+      return setError("Amount must be a positive number.");
+    if (!form.paidBy) return setError("Choose who paid.");
+    if (form.participants.length === 0)
+      return setError("Select at least one participant to split with.");
 
-    let customSplits = {}
-    if (form.splitType === 'custom') {
-      customSplits = Object.fromEntries(form.participants.map((id) => [id, Number(form.customSplits[id]) || 0]))
-      const total = Object.values(customSplits).reduce((sum, v) => sum + v, 0)
+    let customSplits = {};
+    if (form.splitType === "custom") {
+      customSplits = Object.fromEntries(
+        form.participants.map((id) => [id, Number(form.customSplits[id]) || 0]),
+      );
+      const total = Object.values(customSplits).reduce((sum, v) => sum + v, 0);
       if (Math.round(total) !== Math.round(amount)) {
-        return setError(`Custom split totals ${total.toLocaleString()}, but the amount is ${amount.toLocaleString()}.`)
+        return setError(
+          `Custom split totals ${total.toLocaleString()}, but the amount is ${amount.toLocaleString()}.`,
+        );
       }
     }
 
@@ -71,8 +82,8 @@ export default function ExpenseForm({ expense, friends, onSubmit, onCancel }) {
       customSplits,
       date: form.date,
       notes: form.notes.trim(),
-    })
-  }
+    });
+  };
 
   return (
     <form className="expense-form" onSubmit={handleSubmit}>
@@ -80,36 +91,59 @@ export default function ExpenseForm({ expense, friends, onSubmit, onCancel }) {
 
       <label className="expense-form__field">
         <span>Title</span>
-        <input value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} placeholder="e.g. Fuel to Naran" />
+        <input
+          value={form.title}
+          onChange={(e) => setForm({ ...form, title: e.target.value })}
+          placeholder="e.g. Fuel to Naran"
+        />
       </label>
 
       <div className="expense-form__row">
         <label className="expense-form__field">
           <span>Category</span>
-          <select value={form.category} onChange={(e) => setForm({ ...form, category: e.target.value })}>
+          <select
+            value={form.category}
+            onChange={(e) => setForm({ ...form, category: e.target.value })}
+          >
             {EXPENSE_CATEGORIES.map((cat) => (
-              <option key={cat} value={cat}>{cat}</option>
+              <option key={cat} value={cat}>
+                {cat}
+              </option>
             ))}
           </select>
         </label>
         <label className="expense-form__field">
           <span>Amount</span>
-          <input type="number" min="0" value={form.amount} onChange={(e) => setForm({ ...form, amount: e.target.value })} />
+          <input
+            type="number"
+            min="0"
+            value={form.amount}
+            onChange={(e) => setForm({ ...form, amount: e.target.value })}
+          />
         </label>
       </div>
 
       <div className="expense-form__row">
         <label className="expense-form__field">
           <span>Paid by</span>
-          <select value={form.paidBy} onChange={(e) => setForm({ ...form, paidBy: e.target.value })}>
+          <select
+            value={form.paidBy}
+            onChange={(e) => setForm({ ...form, paidBy: e.target.value })}
+          >
             {friends.map((f) => (
-              <option key={f.id} value={f.id}>{f.name}</option>
+              <option key={f.id} value={f.id}>
+                {f.name}
+              </option>
             ))}
           </select>
         </label>
         <label className="expense-form__field">
           <span>Date</span>
-          <input type="date" value={form.date} onChange={(e) => setForm({ ...form, date: e.target.value })} />
+          <input
+            type="date"
+            value={form.date}
+            onChange={(e) => setForm({ ...form, date: e.target.value })}
+          />
         </label>
       </div>
 
@@ -131,42 +165,62 @@ export default function ExpenseForm({ expense, friends, onSubmit, onCancel }) {
 
       <label className="expense-form__field">
         <span>Split type</span>
-        <select value={form.splitType} onChange={(e) => setForm({ ...form, splitType: e.target.value })}>
+        <select
+          value={form.splitType}
+          onChange={(e) => setForm({ ...form, splitType: e.target.value })}
+        >
           <option value="equal">Split equally</option>
           <option value="custom">Custom amounts</option>
         </select>
       </label>
 
-      {form.splitType === 'custom' && (
+      {form.splitType === "custom" && (
         <div className="expense-form__custom-splits">
           {form.participants.map((friendId) => {
-            const friend = friends.find((f) => f.id === friendId)
+            const friend = friends.find((f) => f.id === friendId);
             return (
-              <label key={friendId} className="expense-form__field expense-form__field--inline">
+              <label
+                key={friendId}
+                className="expense-form__field expense-form__field--inline"
+              >
                 <span>{friend?.name}</span>
                 <input
                   type="number"
                   min="0"
-                  value={form.customSplits[friendId] ?? ''}
+                  value={form.customSplits[friendId] ?? ""}
                   onChange={(e) =>
-                    setForm({ ...form, customSplits: { ...form.customSplits, [friendId]: e.target.value } })
+                    setForm({
+                      ...form,
+                      customSplits: {
+                        ...form.customSplits,
+                        [friendId]: e.target.value,
+                      },
+                    })
                   }
                 />
               </label>
-            )
+            );
           })}
         </div>
       )}
 
       <label className="expense-form__field">
         <span>Notes (optional)</span>
-        <textarea rows={2} value={form.notes} onChange={(e) => setForm({ ...form, notes: e.target.value })} />
+        <textarea
+          rows={2}
+          value={form.notes}
+          onChange={(e) => setForm({ ...form, notes: e.target.value })}
+        />
       </label>
 
       <div className="expense-form__actions">
-        <Button type="button" variant="ghost" onClick={onCancel}>Cancel</Button>
-        <Button type="submit" variant="primary">{expense ? 'Save changes' : 'Add expense'}</Button>
+        <Button type="button" variant="ghost" onClick={onCancel}>
+          Cancel
+        </Button>
+        <Button type="submit" variant="primary">
+          {expense ? "Save changes" : "Add expense"}
+        </Button>
       </div>
     </form>
-  )
+  );
 }

@@ -25,7 +25,9 @@
   background: var(--accent);
   margin-top: var(--space-2xs);
   flex: 1;
-  box-shadow: 0 8px 0 -3px var(--border-strong), 0 16px 0 -3px var(--border-strong),
+  box-shadow:
+    0 8px 0 -3px var(--border-strong),
+    0 16px 0 -3px var(--border-strong),
     0 24px 0 -3px var(--border-strong);
 }
 

@@ -20,7 +20,7 @@ html {
   color-scheme: dark;
 }
 
-:root[data-theme='light'] {
+:root[data-theme="light"] {
   color-scheme: light;
 }
 
@@ -32,11 +32,17 @@ body {
   font-size: var(--fs-base);
   line-height: var(--lh-normal);
   -webkit-font-smoothing: antialiased;
-  transition: background-color var(--duration-base) var(--ease-standard),
+  transition:
+    background-color var(--duration-base) var(--ease-standard),
     color var(--duration-base) var(--ease-standard);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
   font-family: var(--font-display);
   line-height: var(--lh-tight);
@@ -48,7 +54,8 @@ p {
   margin: 0;
 }
 
-ul, ol {
+ul,
+ol {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -59,13 +66,16 @@ a {
   text-decoration: none;
 }
 
-button, input, textarea, select {
+button,
+input,
+textarea,
+select {
   font-family: inherit;
   color: inherit;
 }
 
 /* Prevents form fields from forcing horizontal overflow inside flex/grid layouts */
-input:not([type='checkbox']):not([type='radio']),
+input:not([type="checkbox"]):not([type="radio"]),
 textarea,
 select {
   width: 100%;
@@ -79,7 +89,8 @@ button {
   padding: 0;
 }
 
-img, svg {
+img,
+svg {
   display: block;
   max-width: 100%;
 }

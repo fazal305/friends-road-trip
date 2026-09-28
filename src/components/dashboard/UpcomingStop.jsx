@@ -1,43 +1,49 @@
-import { useMemo } from 'react'
-import { Link } from 'react-router-dom'
-import Icon from '../common/Icon.jsx'
-import EmptyState from '../common/EmptyState.jsx'
-import { useItinerary } from '../../hooks/useItinerary.js'
-import { formatWeekday, formatShortDate } from '../../utils/formatters.js'
-import './UpcomingStop.css'
+import { useMemo } from "react";
+import { Link } from "react-router-dom";
+import Icon from "../common/Icon.jsx";
+import EmptyState from "../common/EmptyState.jsx";
+import { useItinerary } from "../../hooks/useItinerary.js";
+import { formatWeekday, formatShortDate } from "../../utils/formatters.js";
+import "./UpcomingStop.css";
 
 function findNextStop(itinerary) {
-  const now = Date.now()
-  let next = null
+  const now = Date.now();
+  let next = null;
 
   for (const day of itinerary) {
     for (const stop of day.stops) {
-      const stopTime = new Date(`${day.date}T${stop.time || '00:00'}`).getTime()
-      if (Number.isNaN(stopTime)) continue
+      const stopTime = new Date(
+        `${day.date}T${stop.time || "00:00"}`,
+      ).getTime();
+      if (Number.isNaN(stopTime)) continue;
       if (stopTime >= now && (!next || stopTime < next.timestamp)) {
-        next = { day, stop, timestamp: stopTime }
+        next = { day, stop, timestamp: stopTime };
       }
     }
   }
 
-  return next
+  return next;
 }
 
 export default function UpcomingStop() {
-  const { itinerary } = useItinerary()
+  const { itinerary } = useItinerary();
 
-  const next = useMemo(() => findNextStop(itinerary), [itinerary])
+  const next = useMemo(() => findNextStop(itinerary), [itinerary]);
 
   if (!itinerary.length) {
     return (
       <div className="surface-card">
-        <EmptyState icon="itinerary" title="No itinerary yet" description="Add a day to start planning your route." />
+        <EmptyState
+          icon="itinerary"
+          title="No itinerary yet"
+          description="Add a day to start planning your route."
+        />
       </div>
-    )
+    );
   }
 
   if (!next) {
-    const lastDay = itinerary[itinerary.length - 1]
+    const lastDay = itinerary[itinerary.length - 1];
     return (
       <div className="upcoming-stop surface-card">
         <span className="upcoming-stop__eyebrow">Trip wrapped up</span>
@@ -47,7 +53,7 @@ export default function UpcomingStop() {
           <Icon name="chevronRight" size={16} />
         </Link>
       </div>
-    )
+    );
   }
 
   return (
@@ -64,12 +70,16 @@ export default function UpcomingStop() {
           {next.stop.time}
         </span>
       </div>
-      <p className="upcoming-stop__day">Day {next.day.dayNumber}: {next.day.title}</p>
-      {next.stop.notes && <p className="upcoming-stop__notes">{next.stop.notes}</p>}
+      <p className="upcoming-stop__day">
+        Day {next.day.dayNumber}: {next.day.title}
+      </p>
+      {next.stop.notes && (
+        <p className="upcoming-stop__notes">{next.stop.notes}</p>
+      )}
       <Link to="/itinerary" className="upcoming-stop__link">
         View full itinerary
         <Icon name="chevronRight" size={16} />
       </Link>
     </div>
-  )
+  );
 }

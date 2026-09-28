@@ -6,11 +6,11 @@
 
 :root {
   /* ---- Brand core (theme-independent) ---- */
-  --brand-accent: #ff6b35;        /* sunset orange — primary action, highlights */
+  --brand-accent: #ff6b35; /* sunset orange — primary action, highlights */
   --brand-accent-dark: #e2531f;
   --brand-accent-light: #ff8c5c;
-  --brand-secondary: #ffb84d;     /* highway amber — secondary highlight, warmth */
-  --brand-teal: #2dd4bf;          /* used sparingly for map/route progress */
+  --brand-secondary: #ffb84d; /* highway amber — secondary highlight, warmth */
+  --brand-teal: #2dd4bf; /* used sparingly for map/route progress */
 
   /* ---- Semantic status colors (theme-independent) ---- */
   --success: #4ade80;
@@ -23,8 +23,8 @@
   --info-soft: rgba(96, 165, 250, 0.14);
 
   /* ---- Typography ---- */
-  --font-display: 'Unbounded', 'Segoe UI', system-ui, sans-serif;
-  --font-body: 'Figtree', 'Segoe UI', system-ui, sans-serif;
+  --font-display: "Unbounded", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Figtree", "Segoe UI", system-ui, sans-serif;
 
   --fs-xs: 0.75rem;
   --fs-sm: 0.875rem;
@@ -82,7 +82,7 @@
    Theme: Dark (default)
    ========================================================================== */
 :root,
-:root[data-theme='dark'] {
+:root[data-theme="dark"] {
   --background: #0e1015;
   --background-elevated: #12151c;
   --surface: #171a22;
@@ -110,7 +110,7 @@
 /* ==========================================================================
    Theme: Light
    ========================================================================== */
-:root[data-theme='light'] {
+:root[data-theme="light"] {
   --background: #faf8f5;
   --background-elevated: #ffffff;
   --surface: #ffffff;

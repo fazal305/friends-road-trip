@@ -4,14 +4,14 @@
  * action) or completed — those manual states always win.
  */
 export function deriveTripStatus(trip) {
-  if (trip.status === 'completed') return 'completed'
+  if (trip.status === "completed") return "completed";
 
-  const today = new Date()
-  const start = new Date(trip.startDate)
-  const end = new Date(trip.endDate)
+  const today = new Date();
+  const start = new Date(trip.startDate);
+  const end = new Date(trip.endDate);
 
-  if (!Number.isNaN(end.getTime()) && today > end) return 'completed'
-  if (trip.status === 'active') return 'active'
-  if (!Number.isNaN(start.getTime()) && today >= start) return 'active'
-  return 'upcoming'
+  if (!Number.isNaN(end.getTime()) && today > end) return "completed";
+  if (trip.status === "active") return "active";
+  if (!Number.isNaN(start.getTime()) && today >= start) return "active";
+  return "upcoming";
 }

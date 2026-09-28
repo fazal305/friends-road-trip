@@ -1,7 +1,7 @@
-import TripHero from '../components/dashboard/TripHero.jsx'
-import TripStats from '../components/dashboard/TripStats.jsx'
-import UpcomingStop from '../components/dashboard/UpcomingStop.jsx'
-import './Dashboard.css'
+import TripHero from "../components/dashboard/TripHero.jsx";
+import TripStats from "../components/dashboard/TripStats.jsx";
+import UpcomingStop from "../components/dashboard/UpcomingStop.jsx";
+import "./Dashboard.css";
 
 export default function Dashboard() {
   return (
@@ -13,5 +13,5 @@ export default function Dashboard() {
         <UpcomingStop />
       </section>
     </div>
-  )
+  );
 }

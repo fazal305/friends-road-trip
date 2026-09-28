@@ -1,11 +1,11 @@
-import { NavLink } from 'react-router-dom'
-import Icon from '../common/Icon.jsx'
-import { NAV_ITEMS } from './navItems.js'
-import { useTrip } from '../../hooks/useTrip.js'
-import './Sidebar.css'
+import { NavLink } from "react-router-dom";
+import Icon from "../common/Icon.jsx";
+import { NAV_ITEMS } from "./navItems.js";
+import { useTrip } from "../../hooks/useTrip.js";
+import "./Sidebar.css";
 
 export default function Sidebar() {
-  const { trip } = useTrip()
+  const { trip } = useTrip();
 
   return (
     <aside className="sidebar" aria-label="Primary navigation">
@@ -21,7 +21,9 @@ export default function Sidebar() {
               <NavLink
                 to={item.to}
                 end={item.end}
-                className={({ isActive }) => `sidebar__link${isActive ? ' sidebar__link--active' : ''}`}
+                className={({ isActive }) =>
+                  `sidebar__link${isActive ? " sidebar__link--active" : ""}`
+                }
               >
                 <Icon name={item.icon} size={19} />
                 <span>{item.label}</span>
@@ -37,5 +39,5 @@ export default function Sidebar() {
         </span>
       </div>
     </aside>
-  )
+  );
 }

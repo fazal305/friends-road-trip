@@ -1,7 +1,7 @@
-import { useTripContext } from '../contexts/TripContext.jsx'
+import { useTripContext } from "../contexts/TripContext.jsx";
 
 export function usePacking() {
-  const { state, actions } = useTripContext()
+  const { state, actions } = useTripContext();
 
   return {
     packingItems: state.packingItems,
@@ -9,5 +9,5 @@ export function usePacking() {
     togglePackingItem: actions.togglePackingItem,
     removePackingItem: actions.removePackingItem,
     assignPackingItem: actions.assignPackingItem,
-  }
+  };
 }

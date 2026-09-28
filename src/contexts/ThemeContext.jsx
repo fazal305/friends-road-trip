@@ -1,29 +1,32 @@
-import { createContext, useContext, useEffect, useMemo } from 'react'
-import { useLocalStorage } from '../hooks/useLocalStorage.js'
+import { createContext, useContext, useEffect, useMemo } from "react";
+import { useLocalStorage } from "../hooks/useLocalStorage.js";
 
-const ThemeContext = createContext(null)
+const ThemeContext = createContext(null);
 
 export function ThemeProvider({ children }) {
-  const [theme, setTheme] = useLocalStorage('theme', 'dark')
+  const [theme, setTheme] = useLocalStorage("theme", "dark");
 
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme)
-  }, [theme])
+    document.documentElement.setAttribute("data-theme", theme);
+  }, [theme]);
 
   const value = useMemo(
     () => ({
       theme,
       setTheme,
-      toggleTheme: () => setTheme((prev) => (prev === 'dark' ? 'light' : 'dark')),
+      toggleTheme: () =>
+        setTheme((prev) => (prev === "dark" ? "light" : "dark")),
     }),
     [theme, setTheme],
-  )
+  );
 
-  return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
+  return (
+    <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
+  );
 }
 
 export function useTheme() {
-  const ctx = useContext(ThemeContext)
-  if (!ctx) throw new Error('useTheme must be used within a ThemeProvider')
-  return ctx
+  const ctx = useContext(ThemeContext);
+  if (!ctx) throw new Error("useTheme must be used within a ThemeProvider");
+  return ctx;
 }

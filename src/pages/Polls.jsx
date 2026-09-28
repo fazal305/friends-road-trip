@@ -1,48 +1,59 @@
-import { useState } from 'react'
-import Icon from '../components/common/Icon.jsx'
-import Button from '../components/common/Button.jsx'
-import EmptyState from '../components/common/EmptyState.jsx'
-import PollCard from '../components/polls/PollCard.jsx'
-import { usePolls } from '../hooks/usePolls.js'
-import { useFriends } from '../hooks/useFriends.js'
-import { useConfirm } from '../hooks/useConfirm.jsx'
-import { uid } from '../data/initialTrip.js'
-import './Polls.css'
+import { useState } from "react";
+import Icon from "../components/common/Icon.jsx";
+import Button from "../components/common/Button.jsx";
+import EmptyState from "../components/common/EmptyState.jsx";
+import PollCard from "../components/polls/PollCard.jsx";
+import { usePolls } from "../hooks/usePolls.js";
+import { useFriends } from "../hooks/useFriends.js";
+import { useConfirm } from "../hooks/useConfirm.jsx";
+import { uid } from "../data/initialTrip.js";
+import "./Polls.css";
 
 export default function Polls() {
-  const { polls, addPoll, votePoll, closePoll, removePoll } = usePolls()
-  const { friends } = useFriends()
-  const { requestConfirm, confirmDialog } = useConfirm()
-  const [showForm, setShowForm] = useState(false)
-  const [question, setQuestion] = useState('')
-  const [options, setOptions] = useState(['', ''])
-  const [error, setError] = useState('')
+  const { polls, addPoll, votePoll, closePoll, removePoll } = usePolls();
+  const { friends } = useFriends();
+  const { requestConfirm, confirmDialog } = useConfirm();
+  const [showForm, setShowForm] = useState(false);
+  const [question, setQuestion] = useState("");
+  const [options, setOptions] = useState(["", ""]);
+  const [error, setError] = useState("");
 
   const updateOption = (index, value) => {
-    setOptions((prev) => prev.map((o, i) => (i === index ? value : o)))
-  }
+    setOptions((prev) => prev.map((o, i) => (i === index ? value : o)));
+  };
 
-  const addOptionField = () => setOptions((prev) => [...prev, ''])
-  const removeOptionField = (index) => setOptions((prev) => prev.filter((_, i) => i !== index))
+  const addOptionField = () => setOptions((prev) => [...prev, ""]);
+  const removeOptionField = (index) =>
+    setOptions((prev) => prev.filter((_, i) => i !== index));
 
   const handleSubmit = (event) => {
-    event.preventDefault()
-    const cleanOptions = options.map((o) => o.trim()).filter(Boolean)
-    if (!question.trim()) return setError('Give the poll a question.')
-    if (cleanOptions.length < 2) return setError('Add at least two options.')
+    event.preventDefault();
+    const cleanOptions = options.map((o) => o.trim()).filter(Boolean);
+    if (!question.trim()) return setError("Give the poll a question.");
+    if (cleanOptions.length < 2) return setError("Add at least two options.");
 
     addPoll({
       question: question.trim(),
-      options: cleanOptions.map((text) => ({ id: uid('opt'), text, votes: [] })),
-    })
-    setQuestion('')
-    setOptions(['', ''])
-    setError('')
-    setShowForm(false)
-  }
+      options: cleanOptions.map((text) => ({
+        id: uid("opt"),
+        text,
+        votes: [],
+      })),
+    });
+    setQuestion("");
+    setOptions(["", ""]);
+    setError("");
+    setShowForm(false);
+  };
 
   if (friends.length === 0) {
-    return <EmptyState icon="polls" title="Add friends first" description="Polls need travelers to vote — add friends on the Friends page." />
+    return (
+      <EmptyState
+        icon="polls"
+        title="Add friends first"
+        description="Polls need travelers to vote — add friends on the Friends page."
+      />
+    );
   }
 
   return (
@@ -52,7 +63,12 @@ export default function Polls() {
           icon="polls"
           title="No polls yet"
           description="Ask the group a question and let everyone vote."
-          action={<Button variant="secondary" onClick={() => setShowForm(true)}><Icon name="plus" size={16} />New poll</Button>}
+          action={
+            <Button variant="secondary" onClick={() => setShowForm(true)}>
+              <Icon name="plus" size={16} />
+              New poll
+            </Button>
+          }
         />
       ) : (
         <>
@@ -62,13 +78,15 @@ export default function Polls() {
                 key={poll.id}
                 poll={poll}
                 friends={friends}
-                onVote={(optionId, friendId) => votePoll(poll.id, optionId, friendId)}
+                onVote={(optionId, friendId) =>
+                  votePoll(poll.id, optionId, friendId)
+                }
                 onClose={() => closePoll(poll.id)}
                 onRemove={() =>
                   requestConfirm({
-                    title: 'Delete this poll?',
+                    title: "Delete this poll?",
                     description: `"${poll.question}" and all its votes will be removed.`,
-                    confirmLabel: 'Delete poll',
+                    confirmLabel: "Delete poll",
                     onConfirm: () => removePoll(poll.id),
                   })
                 }
@@ -77,7 +95,10 @@ export default function Polls() {
           </ul>
 
           {showForm ? (
-            <form className="polls-page__add-form surface-card" onSubmit={handleSubmit}>
+            <form
+              className="polls-page__add-form surface-card"
+              onSubmit={handleSubmit}
+            >
               {error && <p className="polls-page__error">{error}</p>}
               <input
                 autoFocus
@@ -93,7 +114,11 @@ export default function Polls() {
                     onChange={(e) => updateOption(index, e.target.value)}
                   />
                   {options.length > 2 && (
-                    <button type="button" onClick={() => removeOptionField(index)} aria-label="Remove option">
+                    <button
+                      type="button"
+                      onClick={() => removeOptionField(index)}
+                      aria-label="Remove option"
+                    >
                       <Icon name="close" size={14} />
                     </button>
                   )}
@@ -104,8 +129,16 @@ export default function Polls() {
                 Add option
               </Button>
               <div className="polls-page__add-actions">
-                <Button type="button" variant="ghost" onClick={() => setShowForm(false)}>Cancel</Button>
-                <Button type="submit" variant="primary">Create poll</Button>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  onClick={() => setShowForm(false)}
+                >
+                  Cancel
+                </Button>
+                <Button type="submit" variant="primary">
+                  Create poll
+                </Button>
               </div>
             </form>
           ) : (
@@ -118,5 +151,5 @@ export default function Polls() {
       )}
       {confirmDialog}
     </div>
-  )
+  );
 }
