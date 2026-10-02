@@ -109,14 +109,6 @@ Then open the printed local URL (typically `http://localhost:5173`).
 4. Press `?` anywhere in the app to see keyboard shortcuts.
 5. Everything saves automatically — no save button, no account needed.
 
-## Screenshots
-
-> Not yet captured. To fill this section in, take screenshots of: the Dashboard (light and dark mode), the Itinerary with a day expanded, the Route view, the Expenses page showing the settlement list, and the mobile bottom-nav drawer open. Save them to a `docs/screenshots/` folder and reference them here as `![Dashboard](docs/screenshots/dashboard.png)`.
-
-## Demo GIF
-
-> Not yet captured. A short (10–15s) screen recording showing: navigating between a few sections, adding an expense, and toggling the theme would work well here.
-
 ## Future roadmap
 
 - Real map integration (Mapbox/Leaflet) behind an API key, replacing the stylized route view
